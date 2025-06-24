@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bookmark Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+<body>
+  <main>
+    <h1>Bookmark Manager</h1>
+
+    <label for="user-select">Select User:</label>
+    <select id="user-select" aria-label="Select user"></select>
+
+    <section id="bookmark-section">
+      <ul id="bookmark-list" aria-live="polite" aria-label="Bookmark list"></ul>
+      <p id="no-bookmarks-message" hidden>No bookmarks for this user.</p>
+    </section>
+
+    <h2>Add Bookmark</h2>
+    <form id="bookmark-form">
+      <label>
+        URL
+        <input type="url" id="url" name="url" required placeholder="https://example.com" />
+      </label>
+      <label>
+        Title
+        <input type="text" id="title" name="title" required />
+      </label>
+      <label>
+        Description
+        <textarea id="description" name="description" rows="3" required></textarea>
+      </label>
+      <button type="submit">Add Bookmark</button>
+    </form>
+  </main>
+
+  <script type="module" src="./modules/script.js"></script>
+</body>
+</html>
