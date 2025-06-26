@@ -5,6 +5,8 @@ import {
   urlInput,
   titleInput,
   descriptionInput,
+  bookmarkList,
+  noBookmarksMsg
 } from './domElements.js';
 import {
   populateUserDropdown,
@@ -16,7 +18,7 @@ let currentUser = '';
 // load bookmarks
 function loadBookmarksForUser(userId) {
   const bookmarks = getData(userId) || [];
-  renderBookmarks(bookmarks);
+  renderBookmarks(bookmarks, bookmarkList, noBookmarksMsg);
 }
 
 function handleFormSubmit (e) {
@@ -25,7 +27,7 @@ function handleFormSubmit (e) {
     alert("please select a user first");
     return;
   }
-
+  
   const newBookmark = {
     url: urlInput.value,
     title: titleInput.value,
@@ -37,7 +39,7 @@ function handleFormSubmit (e) {
   const updatedData = [newBookmark, ...existingDate];
 
   setData(currentUser, updatedData);
-  renderBookmarks(updatedData)
+  renderBookmarks(updatedData,bookmarkList, noBookmarksMsg)
 
   bookmarkForm.reset();
   loadBookmarksForUser(currentUser);
