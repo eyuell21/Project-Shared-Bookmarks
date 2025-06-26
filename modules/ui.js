@@ -8,6 +8,8 @@ export function populateUserDropdown(users) {
     const defaultOption = document.createElement('option')
     defaultOption.value = '';
     defaultOption.textContent = '--Select a user--';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
     userSelect.appendChild(defaultOption)
 
     // create and append user option
@@ -20,7 +22,7 @@ export function populateUserDropdown(users) {
     });
 }
 
-export function renderBookmarks(bookmarks) {
+export function renderBookmarks(bookmarks, bookmarkList, noBookmarksMsg) {
     bookmarkList.innerHTML = '';
 
     if (!bookmarks || bookmarks.length === 0) {
